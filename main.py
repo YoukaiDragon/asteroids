@@ -1,5 +1,6 @@
 import pygame
 from constants import *
+from player import Player
 
 def main():
     pygame.init()
@@ -9,6 +10,7 @@ def main():
     print(f"Screen height: {SCREEN_HEIGHT}")
 
     clock = pygame.time.Clock()
+    player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
     dt = 0
 
     while True:
@@ -16,6 +18,7 @@ def main():
             if event.type == pygame.QUIT:
                 return
         screen.fill((0,0,0))
+        player.draw(screen)
         pygame.display.flip()
 
         #maintain 60 fps
